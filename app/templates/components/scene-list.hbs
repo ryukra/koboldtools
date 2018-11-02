@@ -1,0 +1,67 @@
+{{#ui-accordion 
+  class="styled"
+}}
+  {{#each scenes as |scene index|}}
+    <div class="title" {{action "stopEdit"}} role="button">
+      Scene {{index}}
+      {{#if scene.chaos}}
+        <i class="scenechaos bolt icon" title="Scene started after a chaotic one. Chaoticlevel was increased."></i>
+      {{/if}}
+      {{#if (compare scene.type "==" "altered")}}
+        <i class="scenechaos random icon" title="Scene was altered!"></i>
+      {{/if}}
+      {{#if (compare scene.type "==" "interupted")}}
+        <i class="scenechaos exclamation icon" title="Scene was interupted!"></i>
+      {{/if}}
+    </div>
+    <div class="content">
+      {{#if editable}}
+        {{textarea-autosize
+          value=scene.text
+          max-height="500px"
+          class="scenetext"
+          focus-out=(action updateText scene.id)
+        }}
+      {{else}}
+        <div class="scenetext" {{action "startEdit"}} role="button" >{{scene.text}}</div>
+      {{/if}}
+      {{#each scene.events as |event|}}
+        {{#if event.chaos}}
+          <div class="chaosevent"> {{event.type}} {{event.text}}</div>
+        {{else}}
+          <div>> {{event.type}} {{event.text}}</div>
+        {{/if}}
+      {{/each}}
+      
+    </div>
+  {{/each}}
+{{/ui-accordion}}
+<div class="ui basic segment">
+  <div class="ui buttons">
+    <button class="ui button" title="Create a new scene." {{action newScene }}><i class="add icon"></i></button>
+    <div class="or"></div>
+    <button 
+      class="ui black button" 
+      title="Current scene was chaotic and will increase the chaoslevel!" 
+      {{action newScene true}}
+    >
+      <i class="bolt icon"></i>
+    </button>
+  </div>
+  <button 
+    title="Create a new random event."
+    class="ui button"
+    {{action roll "event" "0"}} 
+  >
+    <i class="add icon"></i>
+    Event
+  </button>
+  <button 
+    class="ui scenechaos button" 
+    title="Start from scene 0" 
+    {{action removeScenes }}
+  >
+    <i class="remove icon"></i>
+    Clear
+  </button>
+</div>

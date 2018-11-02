@@ -1,0 +1,32 @@
+<div class="ui piled segment">
+  <h3 class="header" title="The objectives and quests of the PCs">Threads</h3>
+  <div class="ui relaxed divided list">
+    {{#each threads as |thread|}}
+      <div class="ui item middle aligned">
+        <div class="content">
+          <span class="left floated header">
+            {{thread.name}}
+          </span>
+          <button 
+            class="ui scenechaos circular comment icon button" 
+            {{action removeThread thread.id}}
+          >
+            <i class="remove icon"></i>
+          </button>
+        </div>
+      </div>
+    {{/each}}
+    <br>
+    <div class="ui mini input">
+      {{input value=tname enter=(action addThread)}}
+      <button 
+        class="ui icon mini button" 
+        {{action addThread tname}}
+        {{action "clearInput"}} 
+      >
+        <i class="add icon"></i>
+      </button>
+      <button class="ui scenechaos icon mini button" {{action clearThreads}}><i class="remove icon"></i>Clear</button>
+    </div>
+  </div>
+</div>

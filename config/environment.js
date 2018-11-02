@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'mythictool',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -20,9 +20,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    emberPouch: {
+      
     }
   };
-
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -34,6 +36,7 @@ module.exports = function(environment) {
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
+    
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
@@ -47,5 +50,7 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
   }
 
+  ENV.emberPouch.localDb = 'test';
+  ENV.emberPouch.remoteDb = '';
   return ENV;
 };

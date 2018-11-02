@@ -1,0 +1,37 @@
+<div class="ui piled segment">
+  <h3 
+    class="header" 
+    title="Add your PCs. They will be randomly chosen for events and checks."
+  >
+    PCs
+  </h3>
+  <div class="ui relaxed divided list">
+    {{#each pcs as |pc|}}
+      <div class="ui item middle aligned">
+        <div class="content">
+          <span class="left floated header">
+            {{pc.name}}
+          </span>
+          <button 
+            class="ui scenechaos circular comment icon button" 
+            {{action removePC pc.id}}
+          >
+            <i class="remove icon"></i>
+          </button>
+        </div>
+      </div>
+    {{/each}}
+    <br>
+    <div class="ui mini input">
+      {{input value=pcname enter=(action addPC)}}
+      <button 
+        class="ui icon mini button" 
+        {{action addPC pcname}} 
+        {{action "clearInput"}}
+      >
+        <i class="add icon"></i>
+      </button>
+      <button class="ui scenechaos icon mini button" {{action clearPC}}><i class="remove icon"></i>Clear</button>
+    </div>
+  </div>
+</div>

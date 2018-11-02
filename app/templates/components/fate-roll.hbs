@@ -1,0 +1,70 @@
+<div class="ui grid column three">
+  <div class="stretched row ">
+    <div class="column four wide ">
+      <button class="ui button basic" title="Likely" {{action roll "fate" "2"}}>+</button>
+      <button class="ui button basic" title="Very Likely" {{action roll "fate" "4"}}>++</button>
+      <button class="ui button basic" title="Sure Thing" {{action roll "fate" "6"}}>+++</button>
+      <button class="ui button basic" title="Has To Be" {{action roll "fate" "8"}}>++++</button>
+    </div>
+    <div class="column eight wide">
+      <div 
+        id="fate" 
+        title="Answers yes/no questions. ! means an exceptional result. And.. means there is a random event happening."
+      >
+        {{fate}}
+      </div>
+      <button class="ui button basic" {{action roll "fate" "0"}}>Unsure 50/50</button>
+      <button 
+        class="ui button basic" 
+        title="If you didn't ask a yes/no question use this to determine what the answer is." 
+        {{action roll "check" "0"}}
+      >
+        Detail Check
+      </button>
+      <div class="ui grid">
+        <div 
+          class="column eight wide" 
+          title="The chaos level indicates how chaotic the adventure runs. 
+          -A high chaoslevel shifts the adventure against the PCs, while a low is benefiting. 
+          -It controls how much random things happen."
+        >
+          <div>Chaos</div>
+          <div id="chaoslevel">{{chaoslevel}}</div>
+        </div>
+        <div 
+          class="column eight wide" 
+          title="If the chaoslevel is 3 or 6 you need to use this to favor/disfavor the PC."
+        >
+          <div class="ui radio checkbox" >
+            <input 
+              type="radio" 
+              name="chaosbonus" 
+              value="2" 
+              onchange={{action changeFavor "2"}}
+            >
+            <label>+2</label>
+          </div>
+          <div class="ui radio checkbox">
+            <input 
+              type="radio" 
+              name="chaosbonus"  
+              onchange={{action changeFavor "0"}} 
+              checked
+            >
+            <label>0</label>
+          </div>
+          <div class="ui radio checkbox">
+            <input type="radio" name="chaosbonus"  onchange={{action changeFavor "-2"}} >
+            <label>-2</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="four wide column">
+      <button class="ui button basic" title="Unlikely" {{action roll "fate" "-2"}}>-</button>
+      <button class="ui button basic" title="Very Unlikely" {{action roll "fate" "-4"}}>--</button>
+      <button class="ui button basic" title="No Way" {{action roll "fate" "-6"}}>---</button>
+      <button class="ui button basic" title="Impossible" {{action roll "fate" "-8"}}>----</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+#header {
+  margin-top: 3em;
+}
+.scenechaos {
+  float:right;
+}
+.floatright {
+  float:right;
+}
+textarea.scenetext {
+  width:100%;
+  border-left:0px;
+  border-right:0px;
+  resize: none;
+}
+textarea.scenetext:focus {
+  outline:none;
+}
+div.scenetext{
+  border:solid rgb(173, 173, 173) 1px;
+  border-left:0px;
+  border-right:0px;
+}
+#chaoslevel{
+  position:relative;
+  left:55%;
+  top:-12%;
+  font-size: 24px;
+  font-family: fantasy;
+}
+.chaosevent{
+  background-color:black;
+  color:white;
+}
+#fate{
+  height:45px;
+  position:relative;
+  text-align:center;
+  top:6%;
+  font-size: 24px;
+  font-family: fantasy;
+}
+.traitinput{
+  width:75px;
+}
+.npcbuttons{
+  position:absolute;
+  right:20px;
+}
+.npcdisbuttons {
+  position: relative;
+  float: right;
+  top: -20px;
+}
+
+.ui.compact.grid .row:not(:first-child),
+.ui.grid .compact.row {
+  padding-top: 0;
+}
+
+.ui.compact.grid .row:not(:last-child),
+.ui.grid .compact.row {
+  padding-bottom: 0;
+}
+
+.ui.compact.grid .column:not(:first-child),
+.ui.grid .compact.row .column:not(:first-child),
+.ui.grid .compact.column {
+  padding-left: 0;
+}
+
+.ui.compact.grid .column:not(:last-child),
+.ui.grid .compact.row .column:not(:last-child),
+.ui.grid .compact.column {
+  padding-right: 0;
+}

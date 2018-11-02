@@ -1,0 +1,31 @@
+<div class="ui piled segment">
+  <h3 class="header" title="Generate Randomstuff to help you interpret things.">
+    Meanings
+  </h3>
+  <div class="ui relaxed divided list">
+    {{#each meanings as |meaning|}}
+      <div class="ui item">
+        <div class="content">
+          {{meaning.text}}
+          {{#each meaning.images as |image|}}
+            <img src="/sd/{{image}}" alt="image">
+          {{/each}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <div class="ui mini input">
+    <button class="ui icon mini button" {{action "addMeaning"}}>
+      <i class="add icon"></i>
+      Text
+    </button>
+    <button class="ui icon mini button" {{action "addStoryDice"}}>
+      <i class="add icon"></i>
+      Story Images
+    </button>
+    <button class="ui floatright icon mini button" {{action "clearMeanings"}}>
+      <i class="remove icon"></i>
+      Clear
+    </button>
+  </div>
+</div>

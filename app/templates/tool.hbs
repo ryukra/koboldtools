@@ -1,0 +1,39 @@
+{{scene-list 
+  scenes=scenes
+  newScene=(action "newScene") 
+  changeChaos=(action "changeChaos")
+  removeScenes=(action "removeScenes")
+  updateText=(action "updateText")
+  roll=(action "roll")
+}}
+{{fate-roll 
+  chaoslevel=chaoslevel 
+  fate=fate
+  roll=(action "roll")
+  changeFavor=(action "changeFavor")
+}}
+{{meaning-tool}}
+{{npc-list 
+  npcs=npcs 
+  addNPC=(action "addNPC")
+  addTrait=(action "addTrait")
+  removeTrait=(action "removeTrait")
+  changeTraitState=(action "changeTraitState")
+  clearNPC=(action "clearNPC")
+  removeNPC=(action "removeNPC")
+  changeDisposition=(action "changeDisposition")
+  roll=(action "roll")
+  traitdeleting=traitdeleting
+}}
+{{thread-list
+  threads=threads
+  addThread=(action "addThread")
+  removeThread=(action "removeThread")
+  clearThreads=(action "clearThreads")
+}}
+{{pc-list
+  pcs=pcs
+  addPC=(action "addPC")
+  removePC=(action "removePC")
+  clearPC=(action "clearPC")
+}}

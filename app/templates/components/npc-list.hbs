@@ -1,0 +1,112 @@
+<div class="ui piled segment">
+  <h3 
+    class="header" 
+    title="NPCs include everyone the party encounters or hear from. 
+    Even Communities like Cult of the Dragon etc."
+  >
+    NPCs
+  </h3>
+  {{#ui-accordion class="styled"}}
+    {{#each npcs as |npc|}}
+      <div class="title" >
+        {{npc.name}}
+        <span class="floatright">{{npc.disposition}} ( {{npc-disposition number=npc.disposition}} )</span>
+      </div>
+      <div class="ui content">
+        <div class="ui mini basic icon buttons npcdisbuttons">
+          <button 
+            class="ui button" 
+            title="Add 2 to disposition score."
+            {{action changeDisposition npc.id "add"}}
+          >
+            <i class="plus icon"></i>
+          </button>
+          <button 
+            class="ui button" 
+            title="Subtract 2 from disposition score."
+            {{action changeDisposition npc.id "sub"}}
+          >
+            <i class="minus icon"></i>
+          </button>
+        </div>
+        <div class="">
+          {{#each npc.identities as |trait|}}
+            {{#if traitdeleting}}
+              <a class="ui label" role="button" {{action changeTraitState trait.id npc.id}}>
+                {{trait.name}} <i class="remove icon"></i>
+              </a>
+            {{else}}
+              {{#if (compare trait.state "==" 0)}}
+                <a 
+                  class="ui label" 
+                  title="Press to change the state of the trait: green:+2, red:-2."
+                  role="button"
+                  {{action changeTraitState trait.id npc.id}} 
+                >
+                  {{trait.name}}
+                </a>
+              {{/if}}
+              {{#if (compare trait.state "==" 1)}}
+                <a 
+                  class="ui green label" 
+                  role="button"
+                  title="Press to change the state of the trait: green:+2, red:-2."
+                  {{action changeTraitState trait.id npc.id}} 
+                >
+                  {{trait.name}} 
+                </a>
+              {{/if}}
+              {{#if (compare trait.state "==" 2)}}
+                <a 
+                  class="ui red label" 
+                  role="button"
+                  title="Press to change the state of the trait: green:+2, red:-2."
+                  {{action changeTraitState trait.id npc.id}} 
+                >
+                  {{trait.name}} 
+                </a>
+              {{/if}}
+            {{/if}}
+          {{/each}}
+          <div class="ui mini input">
+            {{input 
+              value=traitinput 
+              class="traitinput" 
+              enter=(action addTrait npc.id traitinput)
+            }}
+            <button 
+              class="ui mini basic button" 
+              title="Add a new trait." 
+              {{action addTrait npc.id traitinput}}
+            >
+              <i class="add icon"></i>
+            </button>
+          </div>
+        </div>
+        <div class="ui basic icon buttons npcbuttons">
+          <button 
+            class="ui button" 
+            title="Make a behavior check." 
+            {{action roll "behavior" "0" npc.id}}
+          >
+            <i class="comment icon"></i>
+          </button>
+          <button class="ui button" title="Remove NPC." {{action removeNPC npc.id}}><i class="remove icon" ></i></button>
+        </div>
+        <br>
+      </div>
+    {{/each}}
+  {{/ui-accordion}}
+  <br>
+  <div class="ui mini input">
+    {{input value=npname enter=(action addNPC)}}
+    <button 
+      class="ui icon mini button" 
+      {{action addNPC npname}} 
+      {{action "clearInput"}}
+    >
+      <i class="add icon"></i>
+    </button>
+    <button class="ui scenechaos icon mini button" {{action clearNPC}}><i class="remove icon"></i>Clear</button>
+  </div>
+</div>
