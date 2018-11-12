@@ -1,7 +1,13 @@
-# mythictool
+# koboldtools
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Started as a tool for the Mythic GM Emulator Variation II but I will add a lot of stuff to it, that I need myself.
+
+Todo:
+
+* Customizeable rolltables. (with special weight controls)
+* NPC statblock generator using tags like (thief, evil, cr3,human, etc)
+* Map/Dungeon Generator
+
 
 ## Prerequisites
 
