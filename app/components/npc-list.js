@@ -80,11 +80,12 @@ export default Component.extend({
     behaviorCheck(id) {
       let np = this.get('store').peekRecord("np", id);
       let d;
+      let npname;
       if (np.get('name')) {
-        name = np.get('name');
+        npname = np.get('name');
         d = np.get('disposition');
       }
-      let behaviortext = name + ": " + this.actionCheck(id, d);
+      let behaviortext = npname + ": " + this.actionCheck(id, d);
       this.createEvent(behaviortext);
     }
   },

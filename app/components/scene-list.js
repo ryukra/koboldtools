@@ -1,5 +1,7 @@
 import Component from '@ember/component';
 import Ember from 'ember';
+import $ from 'jquery';
+
 
 export default Component.extend({
   store: Ember.inject.service(),
