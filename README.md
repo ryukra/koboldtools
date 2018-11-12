@@ -5,6 +5,7 @@ Started as a tool for the Mythic GM Emulator Variation II but I will add a lot o
 Todo:
 
 * Customizeable rolltables. (with special weight controls)
+* Export options to create a nice document of all scenes, characters for use in creating adventures.
 * NPC statblock generator using tags like (thief, evil, cr3,human, etc)
 * Map/Dungeon Generator
 
