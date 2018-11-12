@@ -17,14 +17,14 @@
           <button 
             class="ui button" 
             title="Add 2 to disposition score."
-            {{action changeDisposition npc.id "add"}}
+            {{action "changeDisposition" npc.id "add"}}
           >
             <i class="plus icon"></i>
           </button>
           <button 
             class="ui button" 
             title="Subtract 2 from disposition score."
-            {{action changeDisposition npc.id "sub"}}
+            {{action "changeDisposition" npc.id "sub"}}
           >
             <i class="minus icon"></i>
           </button>
@@ -32,7 +32,7 @@
         <div class="">
           {{#each npc.identities as |trait|}}
             {{#if traitdeleting}}
-              <a class="ui label" role="button" {{action changeTraitState trait.id npc.id}}>
+              <a class="ui label" role="button" {{action "changeTraitState" trait.id npc.id}}>
                 {{trait.name}} <i class="remove icon"></i>
               </a>
             {{else}}
@@ -41,7 +41,7 @@
                   class="ui label" 
                   title="Press to change the state of the trait: green:+2, red:-2."
                   role="button"
-                  {{action changeTraitState trait.id npc.id}} 
+                  {{action "changeTraitState" trait.id npc.id}} 
                 >
                   {{trait.name}}
                 </a>
@@ -51,7 +51,7 @@
                   class="ui green label" 
                   role="button"
                   title="Press to change the state of the trait: green:+2, red:-2."
-                  {{action changeTraitState trait.id npc.id}} 
+                  {{action "changeTraitState" trait.id npc.id}} 
                 >
                   {{trait.name}} 
                 </a>
@@ -61,7 +61,7 @@
                   class="ui red label" 
                   role="button"
                   title="Press to change the state of the trait: green:+2, red:-2."
-                  {{action changeTraitState trait.id npc.id}} 
+                  {{action "changeTraitState" trait.id npc.id}} 
                 >
                   {{trait.name}} 
                 </a>
@@ -72,12 +72,12 @@
             {{input 
               value=traitinput 
               class="traitinput" 
-              enter=(action addTrait npc.id traitinput)
+              enter=(action "addTrait" npc.id traitinput)
             }}
             <button 
               class="ui mini basic button" 
               title="Add a new trait." 
-              {{action addTrait npc.id traitinput}}
+              {{action "addTrait" npc.id traitinput}}
             >
               <i class="add icon"></i>
             </button>
@@ -87,11 +87,11 @@
           <button 
             class="ui button" 
             title="Make a behavior check." 
-            {{action roll "behavior" "0" npc.id}}
+            {{action "behaviorCheck" npc.id}}
           >
             <i class="comment icon"></i>
           </button>
-          <button class="ui button" title="Remove NPC." {{action removeNPC npc.id}}><i class="remove icon" ></i></button>
+          <button class="ui button" title="Remove NPC." {{action "removeNPC" npc.id}}><i class="remove icon" ></i></button>
         </div>
         <br>
       </div>
@@ -99,14 +99,13 @@
   {{/ui-accordion}}
   <br>
   <div class="ui mini input">
-    {{input value=npname enter=(action addNPC)}}
+    {{input value=npname enter=(action "addNPC")}}
     <button 
       class="ui icon mini button" 
-      {{action addNPC npname}} 
-      {{action "clearInput"}}
+      {{action "addNPC" npname}}
     >
       <i class="add icon"></i>
     </button>
-    <button class="ui scenechaos icon mini button" {{action clearNPC}}><i class="remove icon"></i>Clear</button>
+    <button class="ui scenechaos icon mini button" {{action "clearNPC"}}><i class="remove icon"></i>Clear</button>
   </div>
 </div>

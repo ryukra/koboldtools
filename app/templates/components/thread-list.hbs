@@ -9,7 +9,7 @@
           </span>
           <button 
             class="ui scenechaos circular comment icon button" 
-            {{action removeThread thread.id}}
+            {{action "removeThread" thread.id}}
           >
             <i class="remove icon"></i>
           </button>
@@ -18,15 +18,14 @@
     {{/each}}
     <br>
     <div class="ui mini input">
-      {{input value=tname enter=(action addThread)}}
+      {{input value=tname enter=(action "addThread")}}
       <button 
         class="ui icon mini button" 
-        {{action addThread tname}}
-        {{action "clearInput"}} 
+        {{action "addThread" tname}}
       >
         <i class="add icon"></i>
       </button>
-      <button class="ui scenechaos icon mini button" {{action clearThreads}}><i class="remove icon"></i>Clear</button>
+      <button class="ui scenechaos icon mini button" {{action "clearThreads"}}><i class="remove icon"></i>Clear</button>
     </div>
   </div>
 </div>

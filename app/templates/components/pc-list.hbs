@@ -14,7 +14,7 @@
           </span>
           <button 
             class="ui scenechaos circular comment icon button" 
-            {{action removePC pc.id}}
+            {{action "removePC" pc.id}}
           >
             <i class="remove icon"></i>
           </button>
@@ -23,15 +23,14 @@
     {{/each}}
     <br>
     <div class="ui mini input">
-      {{input value=pcname enter=(action addPC)}}
+      {{input value=pcname enter=(action "addPC")}}
       <button 
         class="ui icon mini button" 
-        {{action addPC pcname}} 
-        {{action "clearInput"}}
+        {{action "addPC" pcname}}
       >
         <i class="add icon"></i>
       </button>
-      <button class="ui scenechaos icon mini button" {{action clearPC}}><i class="remove icon"></i>Clear</button>
+      <button class="ui scenechaos icon mini button" {{action "clearPC"}}><i class="remove icon"></i>Clear</button>
     </div>
   </div>
 </div>
